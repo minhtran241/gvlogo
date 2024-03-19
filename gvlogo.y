@@ -119,7 +119,7 @@ expression:		NUMBER PLUS expression				{ $$ = $1 + $3; }
 		|	NUMBER MULT expression				{ $$ = $1 * $3; }
 		|	NUMBER SUB expression				{ $$ = $1 - $3; }
 		|	NUMBER DIV expression				{ $$ = $1 / $3; }
-		|	NUMBER
+		|	NUMBER { $$ = $1; }
 		;
 
 %%
