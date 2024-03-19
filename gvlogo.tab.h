@@ -96,8 +96,8 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 65 "gvlogo.y"
-{		// add color rgb to here?
+#line 62 "gvlogo.y"
+{
 	float f;
 	char* s;
 	char c;
