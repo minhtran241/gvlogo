@@ -278,8 +278,12 @@ void goTo(int x, int y) {
 	current_coords.x = x;
 	current_coords.y = y;
 
+	printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
+	// Print if pen is down
+
 	//draw if pen is down
 	if(pen_state == 1){
+		printf("Drawing line from (%d, %d) to (%d, %d)\n", prev_coords.x, prev_coords.y, current_coords.x, current_coords.y);
 		//get change in x and y
 		int slope_y = current_coords.y - prev_coords.y;
 		int slope_x = current_coords.x - prev_coords.x;
