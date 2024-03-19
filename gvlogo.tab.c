@@ -1568,9 +1568,14 @@ yyreduce:
     { (yyval.f) = (yyvsp[(1) - (3)].f) / (yyvsp[(3) - (3)].f); ;}
     break;
 
+  case 22:
+#line 122 "gvlogo.y"
+    { (yyval.f) = (yyvsp[(1) - (1)].f); ;}
+    break;
+
 
 /* Line 1267 of yacc.c.  */
-#line 1574 "gvlogo.tab.c"
+#line 1579 "gvlogo.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1947,8 +1952,12 @@ void goTo(int x, int y) {
 	current_coords.x = x;
 	current_coords.y = y;
 
+	printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
+	// Print if pen is down
+
 	//draw if pen is down
 	if(pen_state == 1){
+		printf("Drawing line from (%d, %d) to (%d, %d)\n", prev_coords.x, prev_coords.y, current_coords.x, current_coords.y);
 		//get change in x and y
 		int slope_y = current_coords.y - prev_coords.y;
 		int slope_x = current_coords.x - prev_coords.x;
