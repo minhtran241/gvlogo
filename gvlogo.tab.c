@@ -145,20 +145,23 @@ static const int PEN_EVENT = SDL_USEREVENT + 1;
 static const int DRAW_EVENT = SDL_USEREVENT + 2;
 static const int COLOR_EVENT = SDL_USEREVENT + 3;
 
+// Current color struct
 typedef struct color_t {
 	unsigned char r;
 	unsigned char g;
 	unsigned char b;
 } color;
 
-//added
+// Current coordinates struct
 typedef struct coord_t {
 	int x;
 	int y;
 } coords;
 
+// Current color of the turtle
 static color current_color;
-//added
+
+// Current coordinates of the turtle on the screen
 static coords current_coords;
 
 static double x = WIDTH / 2;
@@ -181,8 +184,8 @@ void print_color();
 void clear();
 void save(const char* path);
 void shutdown();
-void goTo(int x, int y);	// TODO
-void where();				// TODO
+void goTo(int x, int y);
+void where();
 // void store_variables(int *variable, char variable_name, int expression_result);
 
 
@@ -207,14 +210,14 @@ void where();				// TODO
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 63 "gvlogo.y"
+#line 66 "gvlogo.y"
 {
 	float f;
 	char* s;
 	char c;
 }
 /* Line 193 of yacc.c.  */
-#line 218 "gvlogo.tab.c"
+#line 221 "gvlogo.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -239,7 +242,7 @@ typedef struct YYLTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 243 "gvlogo.tab.c"
+#line 246 "gvlogo.tab.c"
 
 #ifdef short
 # undef short
@@ -533,9 +536,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    95,    95,    97,    98,   100,   101,   103,   104,   105,
-     106,   107,   108,   109,   110,   111,   112,   113,   114,   121,
-     122,   123,   124,   125
+       0,    99,    99,   101,   102,   104,   105,   107,   108,   109,
+     110,   111,   112,   113,   114,   115,   116,   117,   118,   124,
+     125,   126,   127,   128
 };
 #endif
 
@@ -1487,108 +1490,108 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 95 "gvlogo.y"
+#line 99 "gvlogo.y"
     { printf("Program complete."); shutdown(); exit(0); ;}
     break;
 
   case 5:
-#line 100 "gvlogo.y"
+#line 104 "gvlogo.y"
     { prompt(); ;}
     break;
 
   case 6:
-#line 101 "gvlogo.y"
+#line 105 "gvlogo.y"
     { yyerrok; prompt(); ;}
     break;
 
   case 7:
-#line 103 "gvlogo.y"
+#line 107 "gvlogo.y"
     { penup(); ;}
     break;
 
   case 8:
-#line 104 "gvlogo.y"
+#line 108 "gvlogo.y"
     { pendown(); ;}
     break;
 
   case 9:
-#line 105 "gvlogo.y"
+#line 109 "gvlogo.y"
     { output((yyvsp[(2) - (2)].s)); ;}
     break;
 
   case 10:
-#line 106 "gvlogo.y"
+#line 110 "gvlogo.y"
     { clear(); ;}
     break;
 
   case 11:
-#line 107 "gvlogo.y"
+#line 111 "gvlogo.y"
     { goTo((int)(yyvsp[(2) - (3)].f), (int)(yyvsp[(3) - (3)].f)); ;}
     break;
 
   case 12:
-#line 108 "gvlogo.y"
+#line 112 "gvlogo.y"
     { where(); ;}
     break;
 
   case 13:
-#line 109 "gvlogo.y"
+#line 113 "gvlogo.y"
     { change_color((int)(yyvsp[(2) - (4)].f), (int)(yyvsp[(3) - (4)].f), (int)(yyvsp[(4) - (4)].f)); ;}
     break;
 
   case 14:
-#line 110 "gvlogo.y"
+#line 114 "gvlogo.y"
     { print_color(); ;}
     break;
 
   case 15:
-#line 111 "gvlogo.y"
+#line 115 "gvlogo.y"
     { turn((yyvsp[(2) - (2)].f)); ;}
     break;
 
   case 16:
-#line 112 "gvlogo.y"
+#line 116 "gvlogo.y"
     { move((int)(yyvsp[(2) - (2)].f)); ;}
     break;
 
   case 17:
-#line 113 "gvlogo.y"
+#line 117 "gvlogo.y"
     { save((yyvsp[(2) - (2)].s)); ;}
     break;
 
   case 18:
-#line 114 "gvlogo.y"
+#line 118 "gvlogo.y"
     { shutdown(); ;}
     break;
 
   case 19:
-#line 121 "gvlogo.y"
+#line 124 "gvlogo.y"
     { (yyval.f) = (yyvsp[(1) - (3)].f) + (yyvsp[(3) - (3)].f); ;}
     break;
 
   case 20:
-#line 122 "gvlogo.y"
+#line 125 "gvlogo.y"
     { (yyval.f) = (yyvsp[(1) - (3)].f) * (yyvsp[(3) - (3)].f); ;}
     break;
 
   case 21:
-#line 123 "gvlogo.y"
+#line 126 "gvlogo.y"
     { (yyval.f) = (yyvsp[(1) - (3)].f) - (yyvsp[(3) - (3)].f); ;}
     break;
 
   case 22:
-#line 124 "gvlogo.y"
+#line 127 "gvlogo.y"
     { (yyval.f) = (yyvsp[(1) - (3)].f) / (yyvsp[(3) - (3)].f); ;}
     break;
 
   case 23:
-#line 125 "gvlogo.y"
+#line 128 "gvlogo.y"
     { (yyval.f) = (yyvsp[(1) - (1)].f); ;}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1592 "gvlogo.tab.c"
+#line 1595 "gvlogo.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1808,43 +1811,50 @@ yyreturn:
 }
 
 
-#line 128 "gvlogo.y"
+#line 131 "gvlogo.y"
 
 
+// Main function to start the program
 int main(int argc, char** argv){
 	startup();
 	return 0;
 }
 
+// Error function to print out error messages
 int yyerror(const char* s){
 	printf("Error: %s\n", s);
 	return -1;
 };
 
+// Prompt function to print out the prompt
 void prompt(){
 	printf("gv_logo > ");
 }
 
+// Function to raise the pen (stop drawing)
 void penup(){
 	event.type = PEN_EVENT;		
 	event.user.code = 0;
 	SDL_PushEvent(&event);
 }
 
+// Function to lower the pen (start drawing)
 void pendown() {
 	event.type = PEN_EVENT;		
 	event.user.code = 1;
 	SDL_PushEvent(&event);
 }
 
+// Function to move the turtle to a new position
 void move(int num){
-	printf("Moving %d\n", num);
+	printf("Moving to position: %d\n", num);
 	event.type = DRAW_EVENT;
 	event.user.code = 1;
 	event.user.data1 = num;
 	SDL_PushEvent(&event);
 }
 
+// Function to turn the turtle in a direction
 void turn(int dir){
 	event.type = PEN_EVENT;
 	event.user.code = 2;
@@ -1852,10 +1862,12 @@ void turn(int dir){
 	SDL_PushEvent(&event);
 }
 
+// Function to print out a string
 void output(const char* s){
 	printf("%s\n", s);
 }
 
+// Function to change the color of the turtle pen
 void change_color(int r, int g, int b){
 	event.type = COLOR_EVENT;
 	current_color.r = r;
@@ -1864,12 +1876,14 @@ void change_color(int r, int g, int b){
 	SDL_PushEvent(&event);
 }
 
+// Function to clear the screen of all drawings
 void clear(){
 	event.type = DRAW_EVENT;
 	event.user.code = 2;
 	SDL_PushEvent(&event);
 }
 
+// Function to save the current screen to a file
 void startup(){
 	SDL_Init(SDL_INIT_VIDEO);
 	window = SDL_CreateWindow("GV-Logo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
@@ -1940,11 +1954,13 @@ void startup(){
 	}
 }
 
+// Function to run the parser
 int run(void* data){
 	prompt();
 	yyparse();
 }
 
+// Function to shutdown the program
 void shutdown(){
 	running = 0;
 	SDL_WaitThread(background_id, NULL);
@@ -1952,6 +1968,7 @@ void shutdown(){
 	SDL_Quit();
 }
 
+// Function to save the current screen to a file
 void save(const char* path){
 	SDL_Surface *surface = SDL_CreateRGBSurface(0, WIDTH, HEIGHT, 32, 0, 0, 0, 0);
 	SDL_RenderReadPixels(rend, NULL, SDL_PIXELFORMAT_ARGB8888, surface->pixels, surface->pitch);
@@ -1959,37 +1976,36 @@ void save(const char* path){
 	SDL_FreeSurface(surface);
 }
 
-//TODO test
+// Function to move the turtle to a new position , draw if pen is down
 void goTo(int x, int y) {
-	//change current coordinates
+	// Change current coordinates
 	coords prev_coords = current_coords;
 	current_coords.x = x;
 	current_coords.y = y;
 
 	printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
-	// Print if pen is down
 
-	//draw if pen is down
+	// Draw if pen is down
 	if(pen_state == 1){
 		printf("Drawing line from (%d, %d) to (%d, %d)\n", prev_coords.x, prev_coords.y, current_coords.x, current_coords.y);
-		//get change in x and y
+		// Get change in x and y
 		int slope_y = current_coords.y - prev_coords.y;
 		int slope_x = current_coords.x - prev_coords.x;
 
-		//inverse tangent to get degrees to move
+		// Inverse tangent to get degrees to move
 		double dir = atan(slope_y/slope_x);
-		//draw
+		// Draw
 		move(dir);
 	}
 }
 
 
-//TODO test this
+// Function to print the current coordinates of the turtle on the canvas
 void where() {
-	//print current coordinates
 	printf("Current coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
 }
 
+// Function to print the current color of the turtle
 void print_color() {
 	printf("Current color: (%d, %d, %d)\n", current_color.r, current_color.g, current_color.b);
 }

@@ -98,7 +98,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 63 "gvlogo.y"
+#line 66 "gvlogo.y"
 {
 	float f;
 	char* s;
