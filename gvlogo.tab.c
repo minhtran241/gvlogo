@@ -1991,7 +1991,7 @@ void goTo(int x, int y) {
     double angle = atan2(delta_y, delta_x) * 180.0 / M_PI;
 
     // Turn the turtle
-    turn(angle - direction);
+    turn(angle);
 
 	printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
 
