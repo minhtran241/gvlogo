@@ -292,37 +292,32 @@ void save(const char* path){
 	SDL_FreeSurface(surface);
 }
 
-// Function to move the turtle to a new position , draw if pen is down
 void goTo(int x, int y) {
-	// Change current coordinates
-	coords prev_coords = current_coords;
-	current_coords.x = x;
-	current_coords.y = y;
+    // Change current coordinates
+    coords prev_coords = current_coords;
+    current_coords.x = x;
+    current_coords.y = y;
 
-	// Calculate change in x and y
+    // Calculate change in x and y
     int delta_x = current_coords.x - prev_coords.x;
     int delta_y = current_coords.y - prev_coords.y;
 
-	// // Calculate the angle to turn
-	// double angle = atan2(delta_y, delta_x) * 180.0 / M_PI;
+    // Calculate the distance to move
+    double distance = sqrt(delta_x * delta_x + delta_y * delta_y);
 
-    // // Turn the turtle
-    // turn(angle - direction);
+    // Calculate the angle to turn
+    double angle = atan2(delta_y, delta_x) * 180.0 / M_PI;
 
-	// printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
+    // Turn the turtle
+    turn(angle);
 
-	// Draw if pen is down
-	if(pen_state == 1){
-		printf("Drawing line from (%d, %d) to (%d, %d)\n", prev_coords.x, prev_coords.y, current_coords.x, current_coords.y);
-
-        // move(sqrt(delta_x * delta_x + delta_y * delta_y));
-
-		//inverse tangent to get degrees to move
-		double dir = atan(delta_y/delta_x);
-		
-		//draw
-		move(dir);
-	}
+    // Draw if pen is down
+    if (pen_state == 1) {
+        printf("Drawing line from (%d, %d) to (%d, %d)\n", prev_coords.x, prev_coords.y, current_coords.x, current_coords.y);
+        
+        // Move the turtle
+        move(distance);
+    }
 }
 
 
