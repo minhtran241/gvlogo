@@ -303,20 +303,25 @@ void goTo(int x, int y) {
     int delta_x = current_coords.x - prev_coords.x;
     int delta_y = current_coords.y - prev_coords.y;
 
-	// Calculate the angle to turn
-	double angle = atan2(delta_y, delta_x) * 180.0 / M_PI;
+	// // Calculate the angle to turn
+	// double angle = atan2(delta_y, delta_x) * 180.0 / M_PI;
 
-    // Turn the turtle
-    turn(angle - direction);
+    // // Turn the turtle
+    // turn(angle - direction);
 
-	printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
+	// printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
 
 	// Draw if pen is down
 	if(pen_state == 1){
 		printf("Drawing line from (%d, %d) to (%d, %d)\n", prev_coords.x, prev_coords.y, current_coords.x, current_coords.y);
 
-        // Move by the calculated delta
-        move(sqrt(delta_x * delta_x + delta_y * delta_y));
+        // move(sqrt(delta_x * delta_x + delta_y * delta_y));
+
+		//inverse tangent to get degrees to move
+		double dir = atan(delta_y/delta_x);
+		
+		//draw
+		move(dir);
 	}
 }
 
