@@ -18,6 +18,7 @@ GOTO                               {return GOTO;}
 WHERE                              {return WHERE;}
 CHANGE_COLOR                       {return CHANGE_COLOR;}
 PRINT_COLOR                        {return PRINT_COLOR;}
+PRINT_PEN_STATE					   {return PRINT_PEN_STATE;}
 PENUP                              {return PENUP;}
 PENDOWN                            {return PENDOWN;}
 CLEAR                              {return CLEAR;}

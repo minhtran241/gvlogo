@@ -49,21 +49,22 @@
      PRINT = 265,
      CHANGE_COLOR = 266,
      PRINT_COLOR = 267,
-     CLEAR = 268,
-     TURN = 269,
-     LOOP = 270,
-     MOVE = 271,
-     NUMBER = 272,
-     END = 273,
-     SAVE = 274,
-     PLUS = 275,
-     SUB = 276,
-     MULT = 277,
-     DIV = 278,
-     EQUAL = 279,
-     STRING = 280,
-     QSTRING = 281,
-     CHAR = 282
+     PRINT_PEN_STATE = 268,
+     CLEAR = 269,
+     TURN = 270,
+     LOOP = 271,
+     MOVE = 272,
+     NUMBER = 273,
+     END = 274,
+     SAVE = 275,
+     PLUS = 276,
+     SUB = 277,
+     MULT = 278,
+     DIV = 279,
+     EQUAL = 280,
+     STRING = 281,
+     QSTRING = 282,
+     CHAR = 283
    };
 #endif
 /* Tokens.  */
@@ -77,21 +78,22 @@
 #define PRINT 265
 #define CHANGE_COLOR 266
 #define PRINT_COLOR 267
-#define CLEAR 268
-#define TURN 269
-#define LOOP 270
-#define MOVE 271
-#define NUMBER 272
-#define END 273
-#define SAVE 274
-#define PLUS 275
-#define SUB 276
-#define MULT 277
-#define DIV 278
-#define EQUAL 279
-#define STRING 280
-#define QSTRING 281
-#define CHAR 282
+#define PRINT_PEN_STATE 268
+#define CLEAR 269
+#define TURN 270
+#define LOOP 271
+#define MOVE 272
+#define NUMBER 273
+#define END 274
+#define SAVE 275
+#define PLUS 276
+#define SUB 277
+#define MULT 278
+#define DIV 279
+#define EQUAL 280
+#define STRING 281
+#define QSTRING 282
+#define CHAR 283
 
 
 
@@ -105,7 +107,7 @@ typedef union YYSTYPE
 	char c;
 }
 /* Line 1529 of yacc.c.  */
-#line 109 "gvlogo.tab.h"
+#line 111 "gvlogo.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

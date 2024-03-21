@@ -81,6 +81,7 @@ void where();
 %token PRINT
 %token CHANGE_COLOR
 %token PRINT_COLOR
+%token PRINT_PEN_STATE
 %token CLEAR
 %token TURN
 %token LOOP
@@ -112,6 +113,7 @@ command:    		PENUP                    						{ penup(); }
         |    		WHERE                    						{ where(); }
         |    		CHANGE_COLOR expression expression expression   { change_color((int)$2, (int)$3, (int)$4); }
         |    		PRINT_COLOR                						{ print_color(); }
+		|			PRINT_PEN_STATE                					{ print_pen_state(); }
         |    		TURN expression                    				{ turn($2); }
         |    		MOVE expression                 				{ move((int)$2); }
         |    		SAVE STRING                    					{ save($2); }
@@ -329,4 +331,12 @@ void where() {
 // Function to print the current color of the turtle
 void print_color() {
 	printf("Current color: (%d, %d, %d)\n", current_color.r, current_color.g, current_color.b);
+}
+
+void print_pen_state() {
+	if (pen_state == 1) {
+		printf("Pen is down\n");
+	} else {
+		printf("Pen is up\n");
+	}
 }
