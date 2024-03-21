@@ -104,12 +104,12 @@ command:		PENUP						{ penup(); }
 	   	|		PENDOWN						{ pendown(); }
 		|		PRINT STRING				{ output($2); }
 		|		CLEAR						{ clear(); }
-		|		GOTO expression expression	{ goTo(atoi($2), atoi($3)); }
+		|		GOTO expression expression	{ goTo((int)$2, (int)$3); }
 		|		WHERE						{ where(); }
-		|		CHANGE_COLOR expression expression expression	{ change_color(atoi($2), atoi($3), atoi($4)); }
+		|		CHANGE_COLOR expression expression expression	{ change_color((int)$2, (int)$3, (int)$4); }
 		|       PRINT_COLOR                { print_color(); }
 		|		TURN expression						{ turn($2); }
-		|		MOVE expression 					{ move(atoi($2)); }
+		|		MOVE expression 					{ move((int)$2); }
 		|		SAVE STRING							{ save($2); }
 		|       SHUTDOWN  						    { shutdown(); }
 		// |		CHAR EQUAL expression_list			{ store_variables(variable, $1, $3); }      // MY attempt at -> (variable location in array) = (the expression) 

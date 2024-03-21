@@ -1523,7 +1523,7 @@ yyreduce:
 
   case 11:
 #line 107 "gvlogo.y"
-    { goTo(atoi((yyvsp[(2) - (3)].f)), atoi((yyvsp[(3) - (3)].f))); ;}
+    { goTo((int)(yyvsp[(2) - (3)].f), (int)(yyvsp[(3) - (3)].f)); ;}
     break;
 
   case 12:
@@ -1533,7 +1533,7 @@ yyreduce:
 
   case 13:
 #line 109 "gvlogo.y"
-    { change_color(atoi((yyvsp[(2) - (4)].f)), atoi((yyvsp[(3) - (4)].f)), atoi((yyvsp[(4) - (4)].f))); ;}
+    { change_color((int)(yyvsp[(2) - (4)].f), (int)(yyvsp[(3) - (4)].f), (int)(yyvsp[(4) - (4)].f)); ;}
     break;
 
   case 14:
@@ -1548,7 +1548,7 @@ yyreduce:
 
   case 16:
 #line 112 "gvlogo.y"
-    { move(atoi((yyvsp[(2) - (2)].f))); ;}
+    { move((int)(yyvsp[(2) - (2)].f)); ;}
     break;
 
   case 17:
