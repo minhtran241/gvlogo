@@ -1990,18 +1990,8 @@ void goTo(int x, int y) {
 	// Calculate the angle to turn
 	double angle = atan2(delta_y, delta_x) * 180.0 / M_PI;
 
-	// Calculate the difference in angles
-	double angle_diff = angle - direction;
-
-	// Normalize the angle difference to be within the range [-180, 180]
-	if (angle_diff > 180.0) {
-		angle_diff -= 360.0;
-	} else if (angle_diff < -180.0) {
-		angle_diff += 360.0;
-	}
-
-	// Turn the turtle
-	turn(angle_diff);
+    // Turn the turtle
+    turn(angle - direction);
 
 	printf("Moved to coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
 
