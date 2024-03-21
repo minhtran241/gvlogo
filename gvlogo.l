@@ -11,12 +11,13 @@
 %%
 
 [A-Z]{1}[a-z]+                     { yylval.s = yytext; return STRING; } 
-[0-9]+[.]{1}[0-9]+                 { yylval.f = atof(yytext); return NUMBER; }
+[0-9]+                 			   { yylval.f = atoi(yytext); return NUMBER; }
 [a-z]{1}			               { yylval.c = yytext[0]; return CHAR; }
 ;                                  {return SEP;}
 GOTO                               {return GOTO;}
 WHERE                              {return WHERE;}
 CHANGE_COLOR                       {return CHANGE_COLOR;}
+PRINT_COLOR                        {return PRINT_COLOR;}
 PENUP                              {return PENUP;}
 PENDOWN                            {return PENDOWN;}
 CLEAR                              {return CLEAR;}

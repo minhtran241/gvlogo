@@ -50,6 +50,7 @@ void move(int num);
 void turn(int dir);
 void output(const char* s);
 void change_color(int r, int g, int b);
+void print_color();
 void clear();
 void save(const char* path);
 void shutdown();
@@ -76,6 +77,7 @@ void where();				// TODO
 %token PENDOWN
 %token PRINT
 %token CHANGE_COLOR
+%token PRINT_COLOR
 %token CLEAR
 %token TURN
 %token LOOP
@@ -102,11 +104,12 @@ command:		PENUP						{ penup(); }
 	   	|		PENDOWN						{ pendown(); }
 		|		PRINT STRING				{ output($2); }
 		|		CLEAR						{ clear(); }
-		|		GOTO expression expression	{ goTo($2, $3); }
+		|		GOTO expression expression	{ goTo(atoi($2), atoi($3)); }
 		|		WHERE						{ where(); }
-		|		CHANGE_COLOR expression expression expression	{ change_color($2, $3, $4); }
+		|		CHANGE_COLOR expression expression expression	{ change_color(atoi($2), atoi($3), atoi($4)); }
+		|       PRINT_COLOR                { print_color(); }
 		|		TURN expression						{ turn($2); }
-		|		MOVE expression 					    { move($2); }
+		|		MOVE expression 					{ move(atoi($2)); }
 		|		SAVE STRING							{ save($2); }
 		|       SHUTDOWN  						    { shutdown(); }
 		// |		CHAR EQUAL expression_list			{ store_variables(variable, $1, $3); }      // MY attempt at -> (variable location in array) = (the expression) 
@@ -119,7 +122,7 @@ expression:		NUMBER PLUS expression				{ $$ = $1 + $3; }
 		|	NUMBER MULT expression				{ $$ = $1 * $3; }
 		|	NUMBER SUB expression				{ $$ = $1 - $3; }
 		|	NUMBER DIV expression				{ $$ = $1 / $3; }
-		|	NUMBER { $$ = $1; }
+		|	NUMBER 								{ $$ = $1; }
 		;
 
 %%
@@ -151,6 +154,7 @@ void pendown() {
 }
 
 void move(int num){
+	printf("Moving %d\n", num);
 	event.type = DRAW_EVENT;
 	event.user.code = 1;
 	event.user.data1 = num;
@@ -300,4 +304,8 @@ void goTo(int x, int y) {
 void where() {
 	//print current coordinates
 	printf("Current coordinates: (%d, %d)\n", current_coords.x, current_coords.y);
+}
+
+void print_color() {
+	printf("Current color: (%d, %d, %d)\n", current_color.r, current_color.g, current_color.b);
 }
