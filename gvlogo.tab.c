@@ -1988,14 +1988,12 @@ void goTo(int x, int y) {
 	// Draw if pen is down
 	if(pen_state == 1){
 		printf("Drawing line from (%d, %d) to (%d, %d)\n", prev_coords.x, prev_coords.y, current_coords.x, current_coords.y);
-		// Get change in x and y
-		int slope_y = current_coords.y - prev_coords.y;
-		int slope_x = current_coords.x - prev_coords.x;
+		// Calculate change in x and y
+        int delta_x = current_coords.x - prev_coords.x;
+        int delta_y = current_coords.y - prev_coords.y;
 
-		// Inverse tangent to get degrees to move
-		double dir = atan(slope_y/slope_x);
-		// Draw
-		move(dir);
+        // Move by the calculated delta
+        move(sqrt(delta_x * delta_x + delta_y * delta_y));
 	}
 }
 
